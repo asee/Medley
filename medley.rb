@@ -2,7 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/base'
 
-class ComboHandler < Sinatra::Base
+class Medley < Sinatra::Base
   
   ROOT_FILE_PATH = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
   

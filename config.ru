@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'rack/cache'
-require 'combo_handler'
+require 'medley'
 
 use Rack::Cache,
   :verbose     => true,
@@ -11,4 +11,4 @@ use Rack::Cache,
   :allow_reload => false,
   :allow_revalidate => false
 
-run ComboHandler
+run Medley

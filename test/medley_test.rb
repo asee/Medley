@@ -4,15 +4,15 @@ require 'fileutils'
 require 'rack/test'
 require 'test/rack_test_patch'
 
-require 'combo_handler'
-class ComboHandlerTest < Test::Unit::TestCase
+require 'medley'
+class MedleyTest < Test::Unit::TestCase
   include Rack::Test::Methods
   include FileUtils
 
   TEST_FILES = Dir.glob(File.join(File.dirname(File.expand_path(__FILE__)),'fixtures') + '/*')
 
   def app
-    ComboHandler
+    Medley
   end
     
   def setup
