@@ -1,0 +1,4 @@
+.autotest
+public/*
+tmp/*
+Gemfile.lock
