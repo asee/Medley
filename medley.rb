@@ -7,7 +7,7 @@ class Medley < Sinatra::Base
   ROOT_FILE_PATH = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
   
   get '/' do
-    'Give me some info'
+    'Medley is running!!gninnur si yeldeM'
   end
 
   get '/combo' do
