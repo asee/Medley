@@ -3,7 +3,7 @@
 Welcome to a simple combo handler written with 
 [Sinatra](http://github.com/sinatra/sinatra/) for use with 
 [Rack](https://github.com/rack/rack). 
-It works just the combo service from Yahoo, and is based on the 
+It works just like the combo service from Yahoo, and is based on the 
 [Node.js version by rgrove](http://github.com/rgrove/combohandler). 
 
 ## Installation
