@@ -16,24 +16,31 @@ class MedleyTest < Test::Unit::TestCase
   end
     
   def setup
+    mkdir_p(app::ROOT_FILE_PATH)
     TEST_FILES.each do |file|
-      ln_s(file, app::ROOT_FILE_PATH)
+      linked_file_name = File.join(app::ROOT_FILE_PATH, File.basename(file))
+      ln_s(file, linked_file_name) unless File.exists?(linked_file_name)
     end
   end
   
   def teardown
     TEST_FILES.each do |file|
-      rm(File.join(app::ROOT_FILE_PATH, File.basename(file)))
+      filename = File.join(app::ROOT_FILE_PATH, File.basename(file))
+      rm(filename) if File.exists?(filename)
     end
   end
   
   def test_home_page
     get '/'
-    assert_equal('Give me some info', last_response.body)
+    assert_equal('Medley is running!!gninnur si yeldeM', last_response.body)
   end
   
   def test_should_forbid_file_requests_outside_the_public_app_root
-    get '/combo?../some_file.file'
+    illegal_request_elements = ['..'] * 3
+    illegal_request_elements << app::ROOT_FILE_PATH
+    illegal_request_elements << "../../some_file.file"
+    illegal_request = illegal_request_elements.join("/")
+    get "/combo?#{illegal_request}"
     assert_equal 403, last_response.status
     assert_equal '', last_response.body
   end

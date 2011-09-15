@@ -40,7 +40,7 @@ private
   end
     
   def verify_path_is_in_app_root(path)
-    unless path.include?(ROOT_FILE_PATH)  
+    unless path.start_with?(ROOT_FILE_PATH)  
       halt 403
     end
   end
