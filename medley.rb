@@ -6,6 +6,10 @@ class Medley < Sinatra::Base
   
   ROOT_FILE_PATH = File.expand_path(File.join(File.dirname(__FILE__), 'public'))
   
+  before do
+    last_modified $updated_at ||= Time.now
+  end
+
   get '/' do
     'Medley is running!!gninnur si yeldeM'
   end

@@ -5,10 +5,10 @@ require 'medley'
 
 use Rack::Cache,
   :verbose     => true,
-  :metastore   => 'file:/var/cache/rack/meta',
-  :entitystore => 'file:/var/cache/rack/body',
+  :metastore   => 'file:./cache/rack/meta',
+  :entitystore => 'file:./cache/rack/body',
   :default_ttl => 86400,
   :allow_reload => false,
-  :allow_revalidate => false
+  :allow_revalidate => true
 
 run Medley
