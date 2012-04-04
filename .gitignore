@@ -1,4 +1,5 @@
 .autotest
 public/*
 tmp/*
-Gemfile.lock
+cache/*
+.DS_Store
